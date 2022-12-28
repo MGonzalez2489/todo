@@ -1,0 +1,42 @@
+<footer class="footer">
+  <!-- This should be `0 items left` by default -->
+  <span class="todo-count"
+    ><strong>{{ todoCompletados.length }}</strong> Tareas Pendientes</span
+  >
+  <!-- Remove this if you don't implement routing -->
+  <ul class="filters">
+    <li>
+      <a
+        [class.selected]="filtro === 'todos'"
+        (click)="setFilter('todos')"
+        href="javascript:void(0)"
+        >Todas</a
+      >
+    </li>
+    <li>
+      <a
+        [class.selected]="filtro === 'pendientes'"
+        href="javascript:void(0)"
+        (click)="setFilter('pendientes')"
+        >Activos</a
+      >
+    </li>
+    <li>
+      <a
+        [class.selected]="filtro === 'completados'"
+        href="javascript:void(0)"
+        (click)="setFilter('completados')"
+      >
+        Completados</a
+      >
+    </li>
+  </ul>
+  <!-- Hidden if no completed items are left ‚Äö√ú√¨ -->
+  <button
+    class="clear-completed"
+    (click)="borrar()"
+    *ngIf="todoCompletados.length > 0"
+  >
+    Borrar Completados
+  </button>
+</footer>
